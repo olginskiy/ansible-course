@@ -34,12 +34,6 @@
         user: "{{ user.login }}"
         state: present
         key: "{{ user.authorized_key }}"
-    - name: Install software
-      package:
-        name:
-          - httpd
-          - git
-        state: present
     - name: Install snmpd package
       yum: name=net-snmp state=latest
     - name: Enable snmpd service
@@ -67,7 +61,5 @@
         privatekey_path: /etc/ssl/private/privkey.pem
         csr_path: /etc/ssl/csr/key.csr
         provider: selfsigned
-  handlers:
-    - name: Restart snmpd
-      action: service name=snmpd state=restarted
+
 
