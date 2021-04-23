@@ -55,15 +55,18 @@
         ctstate: NEW
         jump: ACCEPT
     - name: generate an OpenSSL private key
+      command: mkdir /etc/ssl/private
       openssl_privatekey:
         path: /etc/ssl/private/privkey.pem
         size: 4096
         backup: yes
     - name: generate an OpenSSL Certificate Signing Request
+      command: mkdir /etc/ssl/csr
       openssl_csr:
         path: /etc/ssl/csr/key.csr
         privatekey_path: /etc/ssl/private/privkey.pem
     - name: generate a self signed openSSL certificate
+      command: mkdir /etc/ssl/crt
       openssl_certificate:
         path: /etc/ssl/crt/cert.pem
         privatekey_path: /etc/ssl/private/privkey.pem
