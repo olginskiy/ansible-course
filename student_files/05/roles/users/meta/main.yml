@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  role_name: filter_users_without_email
+  author: Lev Goncharov
+  description: Create users wihtout emails
+
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - centos
+
+  platforms:
+    - name: Centos
+      versions:
+        - 7.6
+
+dependencies:
+  - role: filter_users_without_email

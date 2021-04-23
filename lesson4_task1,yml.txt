@@ -1,0 +1,21 @@
+---
+
+- name: provision server
+  hosts: all
+  become: true
+  become_user: root
+  vars:
+    default_password_hash: '$6$NwI7op8FHR1VQta6$zuQXHtNtM/7SRQsf1./18WbBrHMq4mT88nWh67ThmlWcqyVX3FBTY9uj/07tR9ViDEvjg6/bh0y3mSjeDQYe3.'
+    super_admins:
+      - login: deploy
+        password_hash: "{{ default_password_hash }}"
+        email: dep@loy.me
+      - login: deploy2
+        email: dep@loy.com
+    iptables_allowed_ports:
+      - {protocol: tcp, port: 80}
+  roles:
+    - examples
+	- game2048
+  
+      
