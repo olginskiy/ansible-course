@@ -1,7 +1,5 @@
 ---
 
----
-
 - name: Install 2048
   hosts: all
   become: true
